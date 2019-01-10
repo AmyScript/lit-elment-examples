@@ -2,14 +2,6 @@
 
 <html lang="en">
 <head>
-  <!-- Register service worker if supported. -->
-  <!--
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/service-worker.js');
-    }
-  </script>
-  -->
   
   <!-- Load polyfills -->
   <script 
@@ -23,7 +15,7 @@
       waitFor(cb){ addEventListener('WebComponentsReady', cb) }
     } 
     WebComponents.waitFor(async () => { 
-      import('./src/start-lit-element.js');
+      import('./src/dsg-info-card.js');
     });
   </script>
   
@@ -40,23 +32,10 @@
 </head>
 <body>
 
-  <!-- 
-    To configure starting state of the checkbox from markup: 
-    <start-lit-element pie="true"> 
-  -->
-  
-  <start-lit-element>
-    <!-- Placeholders to improve time to first paint -->
-    <h1>Start LitElement!</h1>
-    <p>Hello World from LitElement</p>
-
-    <!-- Check for JavaScript -->
-    <p id="jsyes"></p>
-    <script type="text/javascript">
-      document.getElementById('jsyes').innerHTML='Loading...';
-    </script>
-    <noscript>
-      Could not render the custom element. Check that JavaScript is enabled.
-    </noscript>
-  </start-lit-element>
+  <dsg-info-card
+    imageUrl="http://cdn.worldweatheronline.net/images/wsymbols01_png_64/wsymbol_0002_sunny_intervals.png"
+    heading="-11&#176;"
+    text="Partly Cloudy"
+    cardWidth="300px">
+  </dsg-info-card>
 </body>
